@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang='ja'>
+    <head>
+        <meta charset="UTF-8">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+        <title>シンキングタイム_タイマー</title>
+        <link href="t_p_style.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="menu">
+            <button onclick="showTab(0), showSwitch(0)" data-pushed="true" class="offTimer" id="onTimer"><span>メインタイマー</span></button>
+            <button onclick="showTab(1), showSwitch(1)" data-pushed="false" class="offTimer" id="betweenEnd"><span>エンド間</span></button>
+            <button onclick="showTab(2), showSwitch(2)" data-pushed="false" class="offTimer" id="midGameBreak"><span>ハーフタイム</span></button>
+            <button onclick="showTab(3), showSwitch(3)" data-pushed="false" class="offTimer" id="timeOut"><span>タイムアウト</span></button>
+            <button onclick="showTab(4), showSwitch(4)" data-pushed="false" class="offTimer" id="extraEnd"><span>エクストラエンド</span></button>
+        </div>
+
+        <div class="tabContent">
+            <div class="red_timer" id="redTimer">38：00</div>
+            
+            <div class="yellow_timer" id="yellowTimer">38：00</div>
+        </div>
+        
+        <div class="tabContent">
+            <div class="breakTimer" id="endBreakTimer">01：00</div>
+        </div>
+
+        <div class="tabContent">
+            <div class="breakTimer" id="midGameTimer">05：00</div>
+        </div>
+
+        <div class="tabContent">
+            <div class="timeOut" id="timeOutTimer">02：30</div>
+        </div>
+        
+        
+        <div class="tabContent">
+            <div class="extraRed_timer" id="exRedTimer">04：30</div>
+            
+            <div class="extraYellow_timer" id="exYellowTimer">04：30</div>
+        </div>
+        
+                <!-- ここから下アクションボタン -->
+        <div class="actionContent">
+            <div class="action">
+                <button class="rStart" data-pushed="false" id="rStart">start</button>
+                <button class="stop"   data-pushed="false" id="stop">stop</button>
+                <button class="yStart" data-pushed="false" id="yStart">start</button>
+            </div>    
+        </div>
+
+        <div class="actionContent">
+            <div class="action">
+                <button class="start" data-pushed="false" id="bStart">start</button>
+            </div>
+        </div>
+
+        <div class="actionContent">
+            <div class="action">
+                <button class="start" data-pushed="false" id="hStart">start</button>
+            </div>
+        </div>
+
+        <div class="actionContent">
+            <div class="action">
+                <button class="start" data-pushed="false" id="tStart">start</button>
+            </div>
+        </div>
+
+        <div class="actionContent">
+            <div class="action">
+                <button class="rStart" data-pushed="false" id="exRStart">start</button>
+                <button class="stop"   data-pushed="false" id="exStop">stop</button>
+                <button class="yStart" data-pushed="false" id="exYStart">start</button>
+            </div>    
+        </div>
+
+        <script src="move_c.js"></script>
+        <script src="mainTimer.js"></script>
+        <script src="halfTimer.js"></script>
+        <script src="breakTimer.js"></script>
+        <script src="extraTimer.js"></script>
+        <script src="timeoutTimer.js"></script>
+    </body>
+</html>

@@ -1,0 +1,199 @@
+.tabContent{
+  display:none;
+  /* display:hide; */
+}
+
+.active{
+  display: block;
+}
+
+.actionContent{
+  display:none;
+  /* display:hide; */
+}
+
+.sActive{
+  display: block;
+}
+
+body {
+  display: flex;
+  justify-content: space-evenly;
+  /* background-color: aqua; */
+}
+
+button{
+  border-radius: 6px;
+}
+  
+/* .onTimer { */
+  /* content: ''; */
+  /* position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 105%;
+  height: 140px;
+  border-radius: 50%;
+  transform: translate3d(-50%,-50%,0) scale3d(0,0,0);
+  transition: opacity .4s cubic-bezier(.19,1,.22,1),transform .75s cubic-bezier(.19,1,.22,1); */
+  /* background-color: hsl(243, 80%, 62%);
+  color: hsl(222, 100%, 95%); */
+  /* opacity: 0; */
+/* } */
+
+
+.offTimer[data-pushed="true"] {
+  background-color: hsl(243, 80%, 62%);
+  color: hsl(222, 100%, 95%);
+}
+
+
+.onTimer span {
+  z-index: 1;
+  position: relative;
+}
+
+
+/* ボタンアニメーション処理
+.onTimer:active span {
+  color: hsl(222, 100%, 95%);
+}
+
+.onTimer:active::before {
+  opacity: 1;
+  transition-duration: .85s;
+  transform: translate3d(-50%,-50%,0) scale3d(1.2,1.2,1.2);
+} */
+
+.offTimer[data-pushed="false"] {
+  padding: 12px 24px;
+  background-color: hsl(222, 100%, 95%);
+  color: hsl(243, 80%, 62%);
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* .offTimer {
+  padding: 12px 24px;
+  background-color: hsl(222, 100%, 95%);
+  color: hsl(243, 80%, 62%);
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  z-index: 1;
+} */
+
+/* .betweenEnd{
+  background-color: orange;
+}
+
+.timeOut{
+  background-color: green;
+} */
+
+.menu{
+  
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  /* background-color: aqua; */
+  /* margin-bottom: 40px; */
+}
+
+.menu button{
+  font-size: 2rem;
+  width: auto;
+  height: 6rem;
+  padding: 0 10px;
+  margin: 15px 0;
+}
+
+/* これが縦に並べてる */
+.action{
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+}
+
+/* 大きさを変えてる */
+.action button{
+  font-size: 3rem;
+  width: auto;
+  height: 9rem;
+  padding: 0 10px;
+  /* width: 30vw;
+  height: 30vw; */
+}
+
+.start{
+  font-size: 3rem;
+  width: auto;
+  height: 9rem;
+  padding: 0 10px;
+}
+
+.reset{
+  font-size: 3rem;
+  width: auto;
+  height: 9rem;
+  padding: 0 10px;
+}
+
+.rStart[data-pushed="false"]{
+  background-color: red;
+  color:white;
+}
+
+.rStart[data-pushed="true"]{
+  background-color: rgb(127, 2, 2);
+  color:white;
+}
+
+.stop[data-pushed="false"]{
+  background-color: black;
+  color:white;
+}
+
+.stop[data-pushed="true"]{
+  background-color: white;
+  color:black;
+}
+
+.yStart[data-pushed="false"]{
+  background-color: rgb(255, 238, 0);
+}
+
+.yStart[data-pushed="true"]{
+  background-color: rgb(105, 98, 0);
+  color: white;
+}
+
+.tabContent{
+  font-size: 12rem;
+}
+
+.red_timer{
+  text-align: center;
+  color: white;
+  background-color: red;
+}
+
+.yellow_timer{
+  text-align: center;
+  color:black;
+  background-color: rgb(255, 238, 0);
+}
+
+.extraRed_timer{
+  text-align: center;
+  color: white;
+  background-color: red;
+}
+
+.extraYellow_timer{
+  text-align: center;
+  color:black;
+  background-color: rgb(255, 238, 0);
+}
