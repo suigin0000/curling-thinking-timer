@@ -46,5 +46,5 @@ A thinking timer that can be used in curling under the 10-end thinking time rule
 ・タブレットで使用したいときに縮尺がおかしい
 
 
-・計時を間違えてしまった時の修正
+・計時を間違えてしまった時の修正用のボタンがない
 
