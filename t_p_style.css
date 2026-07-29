@@ -1,39 +1,39 @@
-.tabContent{
-  display:none;
-  /* display:hide; */
-}
-
-.active{
-  display: block;
-}
-
-.actionContent{
-  display:none;
-}
-
-.sActive{
-  display: block;
-}
-
 /* --- 画面全体のベース設定 --- */
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden; /* スクロールバーが出ないように画面内に固定 */
+  overflow: hidden; /* スクロールバーを出さない */
 }
 
-/* --- 全体のレイアウト設定 --- */
 body {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  padding: 15px;
+  padding: 10px;
   box-sizing: border-box;
-  gap: 15px; /* 各エリア同士の間隔 */
+  gap: 10px;
 }
 
-/* --- 中央：タイマー表示エリア --- */
+button {
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* --- 左側：メニューエリア --- */
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 22%;
+  height: 100%;
+}
+
+.menu button {
+  flex: 1;
+  margin: 3px 0;
+  font-size: clamp(0.9rem, 1.8vw, 1.6rem);
+  display: flex;
 .tabContent {
   flex: 1;
   display: none;     /* JSで .active が付いた時だけ表示 */
