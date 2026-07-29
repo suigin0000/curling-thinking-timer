@@ -1,5 +1,5 @@
 # （カーリングのシンキングタイム制を行うためのタイマー）curling-thinking-timer
-A thinking timer that can be used in curling under the 10-end thinking time rule.
+A thinking timer that can be used in curling under the 10-end, 8-end, MD thinking time rule.
 
 カーリングのシンキングタイマーです。
 
@@ -37,19 +37,14 @@ A thinking timer that can be used in curling under the 10-end thinking time rule
 また、タイマーのスタートボタンを連打する等の予期しない動作をしても問題なく試合が続行できるような設計をしています。
 
 
-課題・要望等↓(修正次第更新予定)
+**追加ログ↓(修正次第更新予定)**
 
 
-・10エンドと8エンドの切り替えがない(38分と30分の切り替えを実装してほしい)
-→実装完了しました（2026/07/29）
+・エンド間ブレイク、スルータイムの表示を見やすいように変更（2026/07/29）
 
 
-・エンド間ミーティング終了時の先攻が投げる時のタイマーの表示が見づらいので、目立つようにしてほしい。
-→実装完了しました（2026/07/29）
+・設定タブ/ボタンの追加、８，１０，MDが選択可能（2026/07/29）
 
 
-・タブレットで使用したいときに縮尺がおかしい
-
-
-・計時を間違えてしまった時の修正用のボタンがない
+・設定タブからトラベルタイムの設定の項目を追加（2026/07/29）
 
