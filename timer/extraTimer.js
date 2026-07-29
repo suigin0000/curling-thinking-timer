@@ -33,6 +33,11 @@ const exCountStartR = () => {
   if (!exStartFR) {
     exIntervalR = setInterval(exCountDownR, 1000);
     exStartFR = true;
+
+    // 赤が動いたので、黄色側を灰色にする
+    document.getElementById("exYellowTimer").classList.add("inactive-timer");
+    // 赤側は確実に元の色にする
+    document.getElementById("exRedTimer").classList.remove("inactive-timer");
   }
 };
 
@@ -40,6 +45,11 @@ const exCountStartY = () => {
   if (!exStartFY) {
     exIntervalY = setInterval(exCountDownY, 1000);
     exStartFY = true;
+
+    // 黄色が動いたので、赤側を灰色にする
+    document.getElementById("exRedTimer").classList.add("inactive-timer");
+    // 黄色側は確実に元の色にする
+    document.getElementById("exYellowTimer").classList.remove("inactive-timer");
   }
 };
 
@@ -74,9 +84,31 @@ const exCountDownY = () => {
 const exCountStopR = () => {
   clearInterval(exIntervalR);
   exStartFR = false;
+  // ストップしたときは黄色側の灰色を解除
+  document.getElementById("exYellowTimer").classList.remove("inactive-timer");
 };
 
 const exCountStopY = () => {
   clearInterval(exIntervalY);
   exStartFY = false;
+  // ストップしたときは赤側の灰色を解除
+  document.getElementById("exRedTimer").classList.remove("inactive-timer");
+};
+
+// ここから追加タイマーの設定関数
+// --- mainTimer.js の末尾に追加 ---
+// 初期時間を分単位でセットして画面表示を更新する関数
+const setExtraTimerDuration = (minutes, seconds = 0) => {
+  const totalSeconds = minutes * 60 + seconds;
+  exCountR = totalSeconds;
+  exCountY = totalSeconds;
+
+  const displayR = document.getElementById("exRedTimer");
+  const displayY = document.getElementById("exYellowTimer");
+
+  const minStr = String(minutes).padStart(2, "0");
+  const secStr = String(seconds).padStart(2, "0");
+
+  if (displayR) displayR.innerHTML = `${minStr}：${secStr}`;
+  if (displayY) displayY.innerHTML = `${minStr}：${secStr}`;
 };
