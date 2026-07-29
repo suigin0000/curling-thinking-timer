@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang='ja'>
+    <head>
+        <meta charset="UTF-8">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+        <title>シンキングタイム_タイマー</title>
+        <link href="t_p_style.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="menu">
+            <button onclick="showTab(0), showSwitch(0)" data-pushed="true" class="offTimer" id="onTimer"><span>メインタイマー</span></button>
+            <button onclick="showTab(1), showSwitch(1)" data-pushed="false" class="offTimer" id="betweenEnd"><span>エンド間</span></button>
+            <button onclick="showTab(2), showSwitch(2)" data-pushed="false" class="offTimer" id="midGameBreak"><span>ハーフタイム</span></button>
+            <button onclick="showTab(3), showSwitch(3)" data-pushed="false" class="offTimer" id="timeOut"><span>タイムアウト</span></button>
+            <button onclick="showTab(4), showSwitch(4)" data-pushed="false" class="offTimer" id="extraEnd"><span>エクストラエンド</span></button>
+            <button onclick="showTab(5), showSwitch(5)" data-pushed="false" class="offTimer" id="settings"><span>設定</span></button>
+        </div>
+
+        <div class="tabContent">
+            <div class="red_timer" id="redTimer">30：00</div>
+            
+            <div class="yellow_timer" id="yellowTimer">30：00</div>
+        </div>
+        
+        <div class="tabContent">
+            <div class="breakTimer" id="endBreakTimer">01：00</div>
+        </div>
+
+        <div class="tabContent">
+            <div class="breakTimer" id="midGameTimer">05：00</div>
+        </div>
+
+        <div class="tabContent">
+            <div class="timeOut" id="timeOutTimer">01：00</div>
+        </div>
+        
+        
+        <div class="tabContent">
+            <div class="extraRed_timer" id="exRedTimer">04：30</div>
+            
+            <div class="extraYellow_timer" id="exYellowTimer">04：30</div>
+        </div>
+
+        <!-- ここから下作業中 -->
+        <!-- <div class="tabContent">
+            <div class="setting_timer_V" id="settingTimerV">00：00</div>
+        </div> -->
+        <!-- ここから上作業中 -->
+
+        <div class="tabContent">
+            <div class="timer-box">
+                <h2>タイマー設定</h2>
+                <div style="font-size: 2rem; margin-bottom: 20px;">
+                    <p style="margin: 0 0 10px 0;">タイムアウト トラベルタイム</p>
+                    <button type="button" id="travelMinus" style="font-size: 2rem; padding: 5px 20px;">←</button>
+                    <span id="travelTimeShow" style="font-size: 3rem; font-weight: bold; margin: 0 20px;">30</span> 秒
+                    <button type="button" id="travelPlus" style="font-size: 2rem; padding: 5px 20px;">→</button>
+                </div>
+            </div>
+        </div>
+
+                <!-- ここから下アクションボタン -->
+        <div class="actionContent">
+            <div class="action">
+                <button class="rStart" data-pushed="false" id="rStart">start</button>
+                <button class="stop"   data-pushed="false" id="stop">stop</button>
+                <button class="yStart" data-pushed="false" id="yStart">start</button>
+            </div>    
+        </div>
+
+        <div class="actionContent">
+            <div class="action">
+                <button class="start" data-pushed="false" id="bStart">start</button>
+            </div>
+        </div>
+
+        <div class="actionContent">
+            <div class="action">
+                <button class="start" data-pushed="false" id="hStart">start</button>
+            </div>
+        </div>
+
+        <div class="actionContent">
+            <div class="action">
+                <button class="start" data-pushed="false" id="tStart">start</button>
+            </div>
+        </div>
+
+        <div class="actionContent">
+            <div class="action">
+                <button class="rStart" data-pushed="false" id="exRStart">start</button>
+                <button class="stop"   data-pushed="false" id="exStop">stop</button>
+                <button class="yStart" data-pushed="false" id="exYStart">start</button>
+            </div>    
+        </div>
+
+        <div class="actionContent">
+            <p style="font-size: 1.5rem; text-align: center; margin: 5px 0; color: #666;">ルールを選択してスタート</p>
+            <div class="horizontal-group">
+                <button class="E8" data-pushed="false" id="set8">8エンド</button>
+                <button class="E10" data-pushed="false" id="set10">10エンド</button>
+                <button class="MD" data-pushed="false" id="setMD">MD</button>
+            </div> 
+        </div>
+
+        <script src="move_c.js"></script>
+        
+        <!-- ここから上作業中 -->
+
+        
+
+        <script src="move_c.js"></script>
+        <script src="mainTimer.js"></script>
+        <script src="halfTimer.js"></script>
+        <script src="breakTimer.js"></script>
+        <script src="extraTimer.js"></script>
+        <script src="timeoutTimer.js"></script>
+    </body>
+</html>
