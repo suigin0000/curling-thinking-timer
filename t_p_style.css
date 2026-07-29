@@ -15,36 +15,75 @@
   display: block;
 }
 
+/* --- 画面全体のベース設定 --- */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* スクロールバーが出ないように画面内に固定 */
+}
+
 /* --- 全体のレイアウト設定 --- */
 body {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  height: 100vh;      /* 画面の高さいっぱいに固定 */
-  margin: 0;
-  padding: 10px;
+  align-items: stretch;
+  padding: 15px;
   box-sizing: border-box;
-  overflow: hidden;   /* スクロールが発生しないようにする */
+  gap: 15px; /* 各エリア同士の間隔 */
 }
 
-/* --- 中央のタイマー表示エリア --- */
+/* --- 中央：タイマー表示エリア --- */
 .tabContent {
-  flex: 1;            /* 左右のメニューとボタンの間で自動で伸縮 */
-  font-size: 10vw;    /* rem から vw（画面幅に応じたサイズ）に変更して折り返しを防止 */
-  font-family: monospace; /* 数字の横幅を揃えて崩れにくくする */
-  text-align: center;
-  white-space: nowrap; /* 強制的に1行に収める（改行禁止） */
-  margin: 0 10px;
+  flex: 1;
+  display: none;     /* JSで .active が付いた時だけ表示 */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  white-space: nowrap;
 }
 
-/* メインタイマー・エクストラタイマーの各ボックス */
+.tabContent.active {
+  display: flex;     /* block から flex に変更して中央寄せ */
+}
+
 .red_timer, .yellow_timer,
-.extraRed_timer, .extraYellow_timer {
+.extraRed_timer, .extraYellow_timer,
+.breakTimer, .timeOut {
   width: 100%;
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 0;
+  font-size: clamp(4rem, 9vw, 10rem); /* 画面サイズに合わせて数字が最適化 */
+  font-family: monospace;
+}
+
+/* --- 右側：アクションボタンエリア --- */
+.actionContent {
+  display: none;
+  width: 20%;        /* 画面幅の20%を使用 */
+  height: 100%;
+}
+
+.actionContent.sActive {
+  display: block;
+  height: 100%;
+}
+
+.action {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.action button {
+  flex: 1;           /* 縦幅を均等分割 */
+  margin: 4px 0;
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem); /* 文字の自動伸縮 */
+  height: auto;      /* 固定 height: 9rem を解除 */
 }
 
 button{
@@ -118,24 +157,23 @@ button{
   background-color: green;
 } */
 
-/* --- 左側メニューエリアの調整 --- */
+/* --- 左側：メニューエリア --- */
 .menu {
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* 上下均等に配置 */
-  height: 95vh;                   /* 画面の高さ（100vh）の中に綺麗に収める */
-  width: 180px;                   /* メニューの固定幅（環境に合わせて調整可） */
-  box-sizing: border-box;
+  justify-content: space-between;
+  width: 20%;        /* 画面幅の20%を使用 */
+  height: 100%;      /* 画面の高さいっぱいに固定 */
 }
 
 .menu button {
-  font-size: 1.5rem;   /* 少しフォントサイズを調整して縦幅を抑える */
-  flex: 1;             /* 6つのボタンで画面の高さを均等に分かち合う */
-  margin: 5px 0;       /* ボタン間の隙間を小さく調整 */
-  padding: 0 5px;
+  flex: 1;           /* 6つのボタンで縦幅を均等分割 */
+  margin: 4px 0;
+  font-size: clamp(1rem, 2vw, 1.8rem); /* 画面サイズに合わせて文字も自動伸縮 */
   display: flex;
   align-items: center;
   justify-content: center;
+  height: auto;      /* 固定 height: 6rem を解除 */
 }
 
 /* これが縦に並べてる */
