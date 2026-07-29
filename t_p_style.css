@@ -64,6 +64,199 @@ button {
   display: flex;
 }
 
+/* タイマーの数字サイズ　*/
+.red_timer, .yellow_timer,
+.extraRed_timer, .extraYellow_timer,
+.breakTimer, .timeOut {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* 最小 5rem 〜 最大 15vw（または 14rem）まで限界突破拡大 */
+  font-size: clamp(5rem, 13vw, 14rem); 
+  font-family: monospace;
+  font-weight: bold; /* 数字を太字にしてさらに存在感をアップ */
+  line-height: 1;   /* 上下の無駄な余白をカットして文字を大きくする */
+}
+
+.red_timer { background-color: red; color: white; }
+.yellow_timer { background-color: rgb(255, 238, 0); color: black; }
+.extraRed_timer { background-color: red; color: white; }
+.extraYellow_timer { background-color: rgb(255, 238, 0); color: black; }
+
+/* エンド間・ハーフタイムの深緑 × 白文字 */
+.tabContent .breakTimer {
+  background-color: #0d5c3a;
+  color: #ffffff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* スルータイム（10秒）の白背景 × 黒文字 */
+.tabContent .breakTimer.through-phase {
+  background-color: #ffffff;
+  color: #000000;
+  border: 2px solid #0d5c3a;
+  box-sizing: border-box;
+}
+
+/* 非アクティブ時の灰色指定 */
+.tabContent .red_timer.inactive-timer,
+.tabContent .yellow_timer.inactive-timer,
+.tabContent .extraRed_timer.inactive-timer,
+.tabContent .extraYellow_timer.inactive-timer {
+  background-color: #7f8c8d !important;
+  color: #bdc3c7 !important;
+}
+
+/* --- 右側：アクションボタンエリア共通 --- */
+.actionContent {
+  display: none;
+  width: 22%;
+  height: 100%;
+}
+
+/* 表示中のアクションコンテンツ */
+.actionContent.sActive {
+  display: block; /* flex から block に戻して内部の .action に任せる */
+  height: 100%;
+}
+
+/* メインタイマーやエクストラタイマーの「start / stop」を縦に大きく伸ばす */
+.action {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 10px;
+}
+
+.action button {
+  flex: 1; /* 縦いっぱいに広げる */
+  width: 100%;
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  font-weight: bold;
+}
+
+/* 赤・黒・黄ボタンの色設定 */
+.rStart[data-pushed="false"] { background-color: red; color: white; }
+.rStart[data-pushed="true"] { background-color: white; color: red; }
+.stop[data-pushed="false"] { background-color: black; color: white; }
+.stop[data-pushed="true"] { background-color: white; color: black; }
+.yStart[data-pushed="false"] { background-color: rgb(255, 238, 0); }
+.yStart[data-pushed="true"] { background-color: black; color: yellow; }
+
+/* 単体ボタン（エンド間・ハーフタイム・タイムアウト用） */
+.start {
+  background-color: #3182ce;
+  color: white;
+}
+
+
+/* --- 設定画面専用：ルール選択アクションエリア --- */
+/* 設定タブが開いている時だけ縦中央寄せにする */
+.actionContent:has(.horizontal-group).sActive {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.actionContent p {
+  font-size: clamp(1rem, 1.5vw, 1.4rem);
+  font-weight: bold;
+  text-align: center;
+  margin: 0 0 15px 0;
+  color: #4a5568;
+}
+
+.horizontal-group {
+  display: flex;
+  flex-direction: column; /* 8エンド・10エンド・MDを縦並びにする */
+  gap: 12px;
+  width: 100%;
+}
+
+.horizontal-group button {
+  width: 100%;
+  height: clamp(50px, 12vh, 80px); /* ほどよい高さを保つ */
+  padding: 10px;
+  background-color: #ffffff;
+  color: #3182ce;
+  border: 2px solid #3182ce;
+  border-radius: 8px;
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  font-weight: bold;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.horizontal-group button:hover {
+  background-color: #ebf8ff;
+  transform: translateY(-2px);
+}
+
+.horizontal-group button:active {
+  background-color: #3182ce;
+  color: #ffffff;
+  transform: translateY(0);
+}
+
+.rStart[data-pushed="false"] { background-color: red; color: white; }
+.rStart[data-pushed="true"] { background-color: white; color: red; }
+.stop[data-pushed="false"] { background-color: black; color: white; }
+.stop[data-pushed="true"] { background-color: white; color: black; }
+.yStart[data-pushed="false"] { background-color: rgb(255, 238, 0); }
+.yStart[data-pushed="true"] { background-color: black; color: yellow; }
+
+/* 設定画面のスタイル調整 */
+.timer-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.timer-box h2 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  margin-bottom: 10px;
+}
+
+.timer-box p {
+  font-size: clamp(1rem, 2vw, 1.8rem);
+}
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+}
+
+.offTimer[data-pushed="true"] {
+  background-color: hsl(243, 80%, 62%);
+  color: hsl(222, 100%, 95%);
+}
+
+.offTimer[data-pushed="false"] {
+  background-color: hsl(222, 100%, 95%);
+  color: hsl(243, 80%, 62%);
+}
+
+/* --- 中央：タイマー表示エリア --- */
+.tabContent {
+  flex: 1;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  white-space: nowrap;
+}
+
+.tabContent.active {
+  display: flex;
+}
+
 .red_timer, .yellow_timer,
 .extraRed_timer, .extraYellow_timer,
 .breakTimer, .timeOut {
